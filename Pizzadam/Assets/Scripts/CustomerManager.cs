@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CustomerManager : MonoBehaviour
 {
-    public enum CustomerState { Ordering, Eating }
-    public CustomerState currentState = CustomerState.Ordering;
+    public enum CustomerState { Sitting = 0, Ordering = 1, Eating = 2 }
+    public CustomerState currentState = CustomerState.Sitting;
 
     [Header("Food Request Visuals")]
     public GameObject cheesePizzaRequestPrefab;
@@ -17,70 +17,83 @@ public class CustomerManager : MonoBehaviour
     public FoodReceiver foodReceiver;
     public Animator customerAnimator;
 
-    [Header("Settings")]
-    public float eatingDuration = 10f;
+    [Header("State Durations (in seconds)")]
+    public Vector2 sittingTimeRange = new Vector2(5f, 10f);   // Min, Max
+    public float eatingDuration = 7f;
 
     private GameObject currentRequestVisual;
     private TrayManager.FoodType currentRequestedFood;
 
     private void Start()
     {
+        StartCoroutine(SittingState());
+    }
+
+    // -------------------- STATES --------------------
+
+    private IEnumerator SittingState()
+    {
+        currentState = CustomerState.Sitting;
+        SetAnimatorState(CustomerState.Sitting);
+
+        float sitTime = Random.Range(sittingTimeRange.x, sittingTimeRange.y);
+        yield return new WaitForSeconds(sitTime);
+
         StartOrdering();
     }
 
     public void StartOrdering()
     {
         currentState = CustomerState.Ordering;
-
-        // Set animator state
-        if (customerAnimator != null)
-        {
-            customerAnimator.SetBool("IsEating", false); // Stop eating
-            customerAnimator.SetTrigger("Order");        // Start ordering
-        }
+        SetAnimatorState(CustomerState.Ordering);
 
         // Pick random food
         int rand = Random.Range(1, 5);
         currentRequestedFood = (TrayManager.FoodType)rand;
 
-        // Spawn request visual
+        // Show request visual
         SpawnRequestVisual(currentRequestedFood);
 
-        // Set expected food on the table (FoodReceiver)
+        // Set expected food at table
         if (foodReceiver != null)
         {
             foodReceiver.SetExpectedFood(currentRequestedFood);
-            foodReceiver.HideAllFood(); // Clear any old table visuals
+            foodReceiver.HideAllFood();
         }
     }
 
     public void StartEating()
     {
-        if (currentState == CustomerState.Eating)
+        if (currentState != CustomerState.Ordering)
             return;
 
         currentState = CustomerState.Eating;
+        SetAnimatorState(CustomerState.Eating);
 
-        // Destroy request visual
+        // Remove request visual
         if (currentRequestVisual != null)
         {
             Destroy(currentRequestVisual);
         }
 
-        // Play eating animation
-        if (customerAnimator != null)
-        {
-            customerAnimator.SetBool("IsEating", true);
-        }
-
-        // Wait before reordering
+        // Start eating coroutine
         StartCoroutine(EatingCooldown());
     }
 
     private IEnumerator EatingCooldown()
     {
         yield return new WaitForSeconds(eatingDuration);
-        StartOrdering();
+        StartCoroutine(SittingState());
+    }
+
+    // -------------------- HELPERS --------------------
+
+    private void SetAnimatorState(CustomerState state)
+    {
+        if (customerAnimator != null)
+        {
+            customerAnimator.SetInteger("State", (int)state);
+        }
     }
 
     private void SpawnRequestVisual(TrayManager.FoodType food)
