@@ -179,7 +179,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 395823502474086601}
-  - component: {fileID: 2729234584817524286}
+  - component: {fileID: 937939677424336914}
+  - component: {fileID: 847527310750460878}
   m_Layer: 0
   m_Name: Customer 1
   m_TagString: Customer
@@ -195,36 +196,63 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023988150823309939}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.737, y: -0.051, z: 1.33}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.12568766, y: -0.74505866, z: 0.08400011}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8777210225000437847}
   - {fileID: 4260864690367423768}
+  - {fileID: 5628653166908427117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2729234584817524286
-Animator:
-  serializedVersion: 5
+--- !u!114 &937939677424336914
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023988150823309939}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d55ea3455785f3948b643c7783be4d28, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39876d5d3d647674b8610834bd782aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  cheesePizzaRequestPrefab: {fileID: 8913614721754753165, guid: cd0398fb3a5782a45ae45554b619cd8b,
+    type: 3}
+  pepPizzaRequestPrefab: {fileID: 9181458876929157234, guid: 7c14da33830017c4fb2d52920307c080,
+    type: 3}
+  veggiePizzaRequestPrefab: {fileID: 7376078904226617144, guid: dd37e148b369c7043abf34f150e01ba8,
+    type: 3}
+  drinkRequestPrefab: {fileID: 9121847692377524180, guid: 8bba2721f6b88e14cba58e0f2f625e5e,
+    type: 3}
+  requestSpawnPoint: {fileID: 5628653166908427117}
+  foodReceiver: {fileID: 0}
+  customerAnimator: {fileID: 0}
+  sittingTimeRange: {x: 5, y: 10}
+  eatingDuration: 10
+--- !u!65 &847527310750460878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023988150823309939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9768096, y: 1.2975718, z: 0.87168115}
+  m_Center: {x: 2.4564714, y: 1.0878189, z: -3.3328178}
 --- !u!1 &2072464203021367745
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +894,37 @@ Transform:
   - {fileID: 7338024340828862587}
   m_Father: {fileID: 897659125998119152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7658535373108205523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5628653166908427117}
+  m_Layer: 0
+  m_Name: requestSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5628653166908427117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658535373108205523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 0.8466666, y: 2.746667, z: -0.133334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 395823502474086601}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &7658811359232382089
 GameObject:
   m_ObjectHideFlags: 0
