@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance;
-    public GameObject gameOverUI; // Assign your Game Over UI Panel here
+
+    public GameObject gameOverUI;
+    public GameObject movementJoystick; // 👈 Add this
 
     private bool isGameOver = false;
 
@@ -21,8 +23,9 @@ public class GameOverManager : MonoBehaviour
         if (isGameOver) return;
 
         isGameOver = true;
-        gameOverUI.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
+        if (gameOverUI != null) gameOverUI.SetActive(true);
+        if (movementJoystick != null) movementJoystick.SetActive(false); // 👈 Disable joystick
+        Time.timeScale = 0f;
     }
 
     public void RetryGame()
