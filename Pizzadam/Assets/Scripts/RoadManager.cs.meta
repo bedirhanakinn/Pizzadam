@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cea54045a529498439bb9dd5b75c19d4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tutorialRoadPrefab: {fileID: 724417241827315932, guid: 700478c0358a7fe48875f2cc9d51eff6,
+      type: 3}
+  - roadSegmentPrefab: {fileID: 724417241827315932, guid: 700478c0358a7fe48875f2cc9d51eff6,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
