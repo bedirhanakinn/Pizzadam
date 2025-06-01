@@ -96,6 +96,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 847527310750460878, guid: e123ac76b392a6e42ac85945395c8257,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.104825
+      objectReference: {fileID: 0}
+    - target: {fileID: 847527310750460878, guid: e123ac76b392a6e42ac85945395c8257,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.6480548
+      objectReference: {fileID: 0}
+    - target: {fileID: 847527310750460878, guid: e123ac76b392a6e42ac85945395c8257,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.6811874
+      objectReference: {fileID: 0}
+    - target: {fileID: 847527310750460878, guid: e123ac76b392a6e42ac85945395c8257,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.109054044
+      objectReference: {fileID: 0}
     - target: {fileID: 937939677424336914, guid: e123ac76b392a6e42ac85945395c8257,
         type: 3}
       propertyPath: foodReceiver

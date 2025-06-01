@@ -150,7 +150,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.57
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 847527310750460878, guid: e123ac76b392a6e42ac85945395c8257, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -158,6 +159,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7702247061334015697}
+    - targetCorrespondingSourceObject: {fileID: 1023988150823309939, guid: e123ac76b392a6e42ac85945395c8257,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5471661789440213697}
   m_SourcePrefab: {fileID: 100100000, guid: e123ac76b392a6e42ac85945395c8257, type: 3}
 --- !u!4 &294316557043540974 stripped
 Transform:
@@ -204,6 +209,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &5471661789440213697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107410476102908244}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8340772, y: 0.8471701, z: 1.9226352}
+  m_Center: {x: -0.7984573, y: 0.67816085, z: -0.16035178}
 --- !u!1001 &773184891553451693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +455,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 81.87
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.14
       objectReference: {fileID: 0}
@@ -445,37 +476,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50000006
+      value: 0.49883196
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5000001
+      value: -0.50190675
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.4999999
+      value: 0.49751234
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.49999994
+      value: 0.50173485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -89.578
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -81.104
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 846f39dae30df48498291190814d9590,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: 171.019
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 846f39dae30df48498291190814d9590,
         type: 3}
@@ -730,8 +761,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.009005767, y: 0.012726237, z: 0.0024902408}
-  m_Center: {x: 0.00826857, y: -0.000010680554, z: 0.0012283447}
+  m_Size: {x: 0.007651143, y: 0.009766785, z: 0.0024902408}
+  m_Center: {x: 0.008945884, y: 0.00032722435, z: 0.0012283447}
 --- !u!114 &8086047720512755299
 MonoBehaviour:
   m_ObjectHideFlags: 0
