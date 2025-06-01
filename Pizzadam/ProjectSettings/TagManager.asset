@@ -11,6 +11,7 @@ TagManager:
   - Customer
   - Drink
   - Drinks
+  - Death
   layers:
   - Default
   - TransparentFX

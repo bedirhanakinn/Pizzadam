@@ -61,4 +61,15 @@ public class PlayerController : MonoBehaviour
     {
         currentDirection = (currentDirection == Direction.Left) ? Direction.Right : Direction.Left;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Death"))
+        {
+            FindObjectOfType<PizzaGameOverHandler>().HandlePizzaGameOver();
+        }
+    }
+
+
+
 }
