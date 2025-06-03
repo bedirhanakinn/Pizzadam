@@ -32,6 +32,8 @@ public class WinManager : MonoBehaviour
         hasWon = true;
         winPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        FindObjectOfType<AudioManager>().PlaySuccessMusic();
     }
 
     public void GoToMainMenu()

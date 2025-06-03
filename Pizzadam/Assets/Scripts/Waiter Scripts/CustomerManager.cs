@@ -21,6 +21,9 @@ public class CustomerManager : MonoBehaviour
     public Vector2 sittingTimeRange = new Vector2(5f, 10f);   // Min, Max
     public float eatingDuration = 7f;
 
+    [HideInInspector]
+    public bool hasReceivedFood = false;
+
     private GameObject currentRequestVisual;
     private TrayManager.FoodType currentRequestedFood;
 
@@ -29,11 +32,10 @@ public class CustomerManager : MonoBehaviour
         StartCoroutine(SittingState());
     }
 
-    // -------------------- STATES --------------------
-
     private IEnumerator SittingState()
     {
         currentState = CustomerState.Sitting;
+        hasReceivedFood = false;
         SetAnimatorState(CustomerState.Sitting);
 
         float sitTime = Random.Range(sittingTimeRange.x, sittingTimeRange.y);
@@ -45,16 +47,15 @@ public class CustomerManager : MonoBehaviour
     public void StartOrdering()
     {
         currentState = CustomerState.Ordering;
+        hasReceivedFood = false;
         SetAnimatorState(CustomerState.Ordering);
 
         // Pick random food
         int rand = Random.Range(1, 5);
         currentRequestedFood = (TrayManager.FoodType)rand;
 
-        // Show request visual
         SpawnRequestVisual(currentRequestedFood);
 
-        // Set expected food at table
         if (foodReceiver != null)
         {
             foodReceiver.SetExpectedFood(currentRequestedFood);
@@ -64,19 +65,18 @@ public class CustomerManager : MonoBehaviour
 
     public void StartEating()
     {
-        if (currentState != CustomerState.Ordering)
+        if (currentState != CustomerState.Ordering || hasReceivedFood)
             return;
 
+        hasReceivedFood = true;
         currentState = CustomerState.Eating;
         SetAnimatorState(CustomerState.Eating);
 
-        // Remove request visual
         if (currentRequestVisual != null)
         {
             Destroy(currentRequestVisual);
         }
 
-        // Start eating coroutine
         StartCoroutine(EatingCooldown());
     }
 
@@ -85,8 +85,6 @@ public class CustomerManager : MonoBehaviour
         yield return new WaitForSeconds(eatingDuration);
         StartCoroutine(SittingState());
     }
-
-    // -------------------- HELPERS --------------------
 
     private void SetAnimatorState(CustomerState state)
     {

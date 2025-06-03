@@ -20,6 +20,8 @@ public class PizzaGameOverHandler : MonoBehaviour
         isGameOver = true;
         pizzaGameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        FindObjectOfType<AudioManager>().PlayFailMusic();
     }
 
     public void RetryPizzaGame()

@@ -12,20 +12,15 @@ public class FoodReceiver : MonoBehaviour
     public GameObject drinkMesh;
 
     [Header("Customer Reference")]
-    public CustomerManager customer; // Assign in inspector or dynamically
+    public CustomerManager customer;
 
-    // Called by TrayManager when waiter enters the trigger
     public bool TryReceiveFood(TrayManager.FoodType deliveredFood)
     {
-        if (deliveredFood != expectedFood || customer == null)
+        if (customer == null || deliveredFood != expectedFood || customer.hasReceivedFood)
             return false;
 
-        // Activate correct food mesh on table
         ShowFoodMesh(deliveredFood);
-
-        // Tell customer to start eating
         customer.StartEating();
-
         return true;
     }
 

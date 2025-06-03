@@ -9,14 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     private Rigidbody rb;
 
-    private Animator animator; // NEW
-    private Transform modelTransform; // NEW
+    private Animator animator;
+    private Transform modelTransform;
+
+    private AudioSource walkingAudioSource; // NEW
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        // Find the child "Model" and get its Animator
         modelTransform = transform.Find("Model");
         if (modelTransform != null)
         {
@@ -25,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Debug.LogError("Model child not found!");
+        }
+
+        // Get AudioSource component
+        walkingAudioSource = GetComponent<AudioSource>(); // NEW
+        if (walkingAudioSource == null)
+        {
+            Debug.LogError("Missing AudioSource component on Player!");
         }
     }
 
@@ -36,17 +44,28 @@ public class PlayerMovement : MonoBehaviour
         if (isMoving)
         {
             Vector3 moveVec = new Vector3(inputVec.x, 0, inputVec.y) * playerSpeed;
-            rb.velocity = new Vector3(moveVec.x, rb.velocity.y, moveVec.z); // preserve Y velocity
+            rb.velocity = new Vector3(moveVec.x, rb.velocity.y, moveVec.z);
 
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(inputVec.x, 0, inputVec.y));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // Play walking sound
+            if (walkingAudioSource != null && !walkingAudioSource.isPlaying)
+            {
+                walkingAudioSource.Play();
+            }
         }
         else
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+
+            // Stop walking sound
+            if (walkingAudioSource != null && walkingAudioSource.isPlaying)
+            {
+                walkingAudioSource.Stop();
+            }
         }
 
-        // Control animation
         if (animator != null)
         {
             animator.SetBool("isMoving", isMoving);

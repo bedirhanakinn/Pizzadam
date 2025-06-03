@@ -17,7 +17,6 @@ public class TrayManager : MonoBehaviour
 
     [HideInInspector] public FoodType currentFood = FoodType.None;
 
-    // Deactivate all food visuals
     private void Start()
     {
         ClearTray();
@@ -25,7 +24,7 @@ public class TrayManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Food pickup zones
+        // --------- Food Pickup Zones ---------
         if (other.CompareTag("CheesePizza"))
         {
             PickupFood(FoodType.CheesePizza);
@@ -42,23 +41,32 @@ public class TrayManager : MonoBehaviour
         {
             PickupFood(FoodType.Drink);
         }
-        // Serving zones
+
+        // --------- Serve Zone ---------
         else if (other.CompareTag("ServeZone"))
         {
+            // ✅ If not carrying food, do nothing
+            if (currentFood == FoodType.None)
+                return;
+
             FoodReceiver receiver = other.GetComponent<FoodReceiver>();
-            if (receiver != null && receiver.TryReceiveFood(currentFood))
+            if (receiver != null)
             {
-                PlaySound(serveSound);
-                ClearTray();
+                bool success = receiver.TryReceiveFood(currentFood);
+                if (success)
+                {
+                    PlaySound(serveSound);  // ✅ Only plays if correct delivery
+                    ClearTray();
+                }
             }
         }
     }
 
     private void PickupFood(FoodType food)
     {
-        if (food == currentFood) return; // already holding same food
+        if (food == currentFood) return;
 
-        ClearTray(); // Hide previous food
+        ClearTray(); // Turn off all food visuals
         currentFood = food;
 
         switch (food)
