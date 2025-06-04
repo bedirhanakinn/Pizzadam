@@ -78,6 +78,13 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Menu 1");
     }
 
+    public void GoToWaiterScene()
+    {
+        PlayClick();
+        SceneManager.LoadScene("Waiter Scene");
+    }
+
+
     // === UTILITY ===
 
     private void DisableAllPanels()

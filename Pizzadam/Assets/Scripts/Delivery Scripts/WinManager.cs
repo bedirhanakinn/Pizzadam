@@ -39,6 +39,6 @@ public class WinManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu 3");
+        SceneManager.LoadScene("Menu 2");
     }
 }

@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minScale: 1.5
   maxScale: 1.7
-  pulseSpeed: 2
+  pulseSpeed: 0.3
 --- !u!1 &340985002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,7 +2558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: 0}
+  m_AnchoredPosition: {x: -18, y: 109}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838164837
@@ -3410,7 +3410,7 @@ GameObject:
   - component: {fileID: 1179185764}
   - component: {fileID: 1179185763}
   m_Layer: 5
-  m_Name: DriverLevel (1)
+  m_Name: WaiterLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3433,7 +3433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136, y: -481}
+  m_AnchoredPosition: {x: -136, y: -372}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179185763

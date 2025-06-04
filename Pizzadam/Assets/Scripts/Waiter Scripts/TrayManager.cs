@@ -15,6 +15,9 @@ public class TrayManager : MonoBehaviour
     public AudioClip pickupSound;
     public AudioClip serveSound;
 
+    [Header("Win System")]
+    public WaiterWinManager winManager; // ✅ Assign in Inspector
+
     [HideInInspector] public FoodType currentFood = FoodType.None;
 
     private void Start()
@@ -45,7 +48,6 @@ public class TrayManager : MonoBehaviour
         // --------- Serve Zone ---------
         else if (other.CompareTag("ServeZone"))
         {
-            // ✅ If not carrying food, do nothing
             if (currentFood == FoodType.None)
                 return;
 
@@ -55,8 +57,14 @@ public class TrayManager : MonoBehaviour
                 bool success = receiver.TryReceiveFood(currentFood);
                 if (success)
                 {
-                    PlaySound(serveSound);  // ✅ Only plays if correct delivery
+                    PlaySound(serveSound);
                     ClearTray();
+
+                    // ✅ Notify WinManager
+                    if (winManager != null)
+                    {
+                        winManager.RegisterSuccessfulDelivery();
+                    }
                 }
             }
         }
@@ -66,7 +74,7 @@ public class TrayManager : MonoBehaviour
     {
         if (food == currentFood) return;
 
-        ClearTray(); // Turn off all food visuals
+        ClearTray();
         currentFood = food;
 
         switch (food)
