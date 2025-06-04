@@ -33,6 +33,6 @@ public class PizzaGameOverHandler : MonoBehaviour
     public void GoToPizzaMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // Replace if your main menu has a different name
+        SceneManager.LoadScene("Menu 1"); // Replace if your main menu has a different name
     }
 }
