@@ -226,5 +226,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6b22811dacf0e41a28c2c9de8fa166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requestDuration: 12
+  requestDuration: 14
   timerBar: {fileID: 4070780495187357167}

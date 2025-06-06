@@ -9,15 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu 1.unity
     guid: 12cd74fc5c667ac4cb14e1b252311650
   - enabled: 1
-    path: Assets/Scenes/Driver Scene.unity
-    guid: 1e63b988d22085c4785ad9e9a4966c0a
+    path: Assets/Scenes/Waiter Scene.unity
+    guid: fed2823f4e149774f8c04f275e458551
   - enabled: 1
     path: Assets/Scenes/Menu 2.unity
     guid: f0bda67346483554c863223f81dc8e83
   - enabled: 1
-    path: Assets/Scenes/Waiter Scene.unity
-    guid: fed2823f4e149774f8c04f275e458551
+    path: Assets/Scenes/Driver Instructions.unity
+    guid: 16b2c36be0b2a54418a4d5584e377263
+  - enabled: 1
+    path: Assets/Scenes/Driver Scene.unity
+    guid: 1e63b988d22085c4785ad9e9a4966c0a
   - enabled: 1
     path: Assets/Scenes/Menu 3.unity
     guid: 04b9706beeafcb84cbbba6484b42e3d0
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 39f16446aa244fe4f9b61a843e9a10c7, type: 2}

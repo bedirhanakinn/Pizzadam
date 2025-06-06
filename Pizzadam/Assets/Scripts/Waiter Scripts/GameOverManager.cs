@@ -37,6 +37,6 @@ public class GameOverManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Boss Scene 2");
+        SceneManager.LoadScene("Menu 1");
     }
 }

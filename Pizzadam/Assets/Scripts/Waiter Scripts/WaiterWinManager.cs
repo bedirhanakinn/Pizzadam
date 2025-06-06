@@ -115,7 +115,7 @@ public class WaiterWinManager : MonoBehaviour
     public void LoadMenuScene()
     {
         Time.timeScale = 1f; // Just in case it's still paused
-        SceneManager.LoadScene("Menu 3");
+        SceneManager.LoadScene("Menu 2");
     }
 
 }

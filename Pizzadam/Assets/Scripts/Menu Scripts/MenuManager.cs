@@ -69,7 +69,7 @@ public class MenuManager : MonoBehaviour
     public void GoToDriverScene()
     {
         PlayClick();
-        SceneManager.LoadScene("Driver Scene");
+        SceneManager.LoadScene("Driver Instructions");
     }
 
     public void ResetMenuScene()
