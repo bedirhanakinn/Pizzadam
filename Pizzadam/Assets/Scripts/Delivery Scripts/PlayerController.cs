@@ -134,8 +134,8 @@ public class PlayerController : MonoBehaviour
                 currentRotationTime += Time.deltaTime;
                 float progress = Mathf.Clamp01(currentRotationTime / rotationDuration);
                 float angleX = (activeIndicator == holdIndicatorLeft)
-                    ? Mathf.Lerp(0f, 325f, progress)
-                    : Mathf.Lerp(0f, -325f, progress);
+                    ? Mathf.Lerp(-15f, -50f, progress)
+                    : Mathf.Lerp(15f, 50f, progress);
 
                 activeIndicator.transform.localRotation = Quaternion.Euler(angleX, -90f, 270f);
             }

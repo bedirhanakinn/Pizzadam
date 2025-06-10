@@ -950,8 +950,8 @@ Transform:
   m_GameObject: {fileID: 561449310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.09, z: -8.45}
-  m_LocalScale: {x: 1, y: 1, z: 2.206}
+  m_LocalPosition: {x: 0, y: 0.033, z: -8.45}
+  m_LocalScale: {x: 0.27063, y: 1, z: 2.206}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1264,8 +1264,8 @@ MonoBehaviour:
   - {fileID: 7050249150019701776, guid: 1a251d72a2b2ec74195b01cb89573042, type: 3}
   startDelay: 1
   initialSpawnInterval: 2
-  minSpawnInterval: 0.5
-  difficultyRampRate: 0.05
+  minSpawnInterval: 0.6
+  difficultyRampRate: 0.04
 --- !u!4 &686248246
 Transform:
   m_ObjectHideFlags: 0
